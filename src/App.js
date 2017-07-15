@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
 import Chemical from './components/Chemical'
+import ChemicalService from './services/ChemicalService';
 import './App.css';
 
-let chemical = {
-  name: "Acetic acid",
-  formula: "C2H4O2"
-}
-
 class App extends Component {
+  constructor() {
+    super()
+
+    this.state = {
+      chemical: {}
+    }
+  }
+
+  componentDidMount() {
+    ChemicalService.fetchChemical().then(chemical => this.setState({chemical}))
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,7 +27,7 @@ class App extends Component {
         </div>
 
         <div className="chemical">
-          <Chemical chemical={chemical}/>
+          <Chemical chemical={this.state.chemical}/>
         </div>
 
       </div>
