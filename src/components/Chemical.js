@@ -1,10 +1,15 @@
 import React from 'react';
 
-const Chemical = ({chemical}) => {
+const Chemical = ({chemicals}) => {
+  const renderChemicals = chemicals.map(chemical => {
+    return ([
+      <p>name: {chemical.name}</p>,
+      <p>formula: {chemical.formula} </p>
+    ])
+  })
   return (
     <div>
-      <p>name: {chemical.name}</p>
-      <p>formula: {chemical.formula} </p>
+      {renderChemicals}
     </div>
   )
 }

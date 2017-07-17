@@ -8,12 +8,12 @@ class App extends Component {
     super()
 
     this.state = {
-      chemical: {}
+      chemicals: []
     }
   }
 
   componentDidMount() {
-    ChemicalService.fetchChemical().then(chemical => this.setState({chemical}))
+    ChemicalService.fetchChemical().then(chemicals => this.setState({chemicals}))
   }
 
   render() {
@@ -26,8 +26,8 @@ class App extends Component {
           SearchBar
         </div>
 
-        <div className="chemical">
-          <Chemical chemical={this.state.chemical}/>
+        <div className="chemicals">
+          <Chemical chemicals={this.state.chemicals}/>
         </div>
 
       </div>
