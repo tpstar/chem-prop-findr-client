@@ -3,7 +3,7 @@ console.log(API_URL);
 
 const ChemicalService = {
   fetchChemical: () => {
-    return fetch('${API_URL}/chemicals')
+    return fetch(`${API_URL}/api/chemicals`)
       .then(response => response.json())
   }
 }
