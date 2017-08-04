@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Chemical from './components/Chemical'
+// import Chemical from './components/Chemical'
+import SearchChemical from './components/SearchChemical';
 import ChemicalService from './services/ChemicalService';
 import './App.css';
 
@@ -8,12 +9,28 @@ class App extends Component {
     super()
 
     this.state = {
-      chemicals: []
+      // chemicals: [],
+      chemical: {
+        name: '',
+        formula: '',
+        fw: '',
+        bp: '',
+        mp: ''
+      }
     }
   }
 
-  componentDidMount() {
-    ChemicalService.fetchChemical().then(chemicals => this.setState({chemicals}))
+  // componentDidMount() {
+  //   ChemicalService.fetchChemical().then(chemicals => this.setState({chemicals}))
+  // }
+
+  // searchChemical = chemical => {
+  //   ChemicalService.searchChemical.then(chemical => this.setState({
+  //     chemical: this.state.chemical
+  //   }))
+  // }
+  searchChemical = chemical => {
+    console.log(chemical)
   }
 
   render() {
@@ -23,12 +40,12 @@ class App extends Component {
         <h1>Chemical Property Search App</h1>
 
         <div className="searchbar">
-          SearchBar
+          <SearchChemical qChemical={this.searchChemical}/>
         </div>
 
-        <div className="chemicals">
+        {/*<div className="chemicals">
           <Chemical chemicals={this.state.chemicals}/>
-        </div>
+        </div>*/}
 
       </div>
     );
