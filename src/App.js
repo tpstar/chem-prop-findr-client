@@ -25,12 +25,13 @@ class App extends Component {
   // }
 
   // searchChemical = chemical => {
-  //   ChemicalService.searchChemical.then(chemical => this.setState({
+  //   ChemicalService.search.then(chemical => this.setState({
   //     chemical: this.state.chemical
   //   }))
   // }
   searchChemical = chemical => {
-    console.log(chemical)
+    ChemicalService.search(chemical).then(chemical => console.log(chemical)) //this.setState({chemical}));
+    // console.log(this.state.chemical)
   }
 
   render() {
