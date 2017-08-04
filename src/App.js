@@ -9,29 +9,17 @@ class App extends Component {
     super()
 
     this.state = {
-      // chemicals: [],
-      chemical: {
-        name: '',
-        formula: '',
-        fw: '',
-        bp: '',
-        mp: ''
-      }
+      chemical: {}
     }
   }
 
-  // componentDidMount() {
-  //   ChemicalService.fetchChemical().then(chemicals => this.setState({chemicals}))
-  // }
-
-  // searchChemical = chemical => {
-  //   ChemicalService.search.then(chemical => this.setState({
-  //     chemical: this.state.chemical
-  //   }))
-  // }
   searchChemical = chemical => {
-    ChemicalService.search(chemical).then(chemical => console.log(chemical)) //this.setState({chemical}));
-    // console.log(this.state.chemical)
+    ChemicalService.search(chemical)
+      .then(chemical => {
+        this.setState({chemical})
+        console.log(this.state.chemical)
+      });
+
   }
 
   render() {
@@ -44,8 +32,8 @@ class App extends Component {
           <SearchChemical qChemical={this.searchChemical}/>
         </div>
 
-        {/*<div className="chemicals">
-          <Chemical chemicals={this.state.chemicals}/>
+        {/*<div className="chemical">
+          <Chemical chemical={this.state.chemical}/>
         </div>*/}
 
       </div>
