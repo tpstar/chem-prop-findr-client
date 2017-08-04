@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import Chemical from './components/Chemical'
+import Chemical from './components/Chemical'
 import SearchChemical from './components/SearchChemical';
 import ChemicalService from './services/ChemicalService';
 import './App.css';
@@ -32,9 +32,9 @@ class App extends Component {
           <SearchChemical qChemical={this.searchChemical}/>
         </div>
 
-        {/*<div className="chemical">
+        {<div className="chemical">
           <Chemical chemical={this.state.chemical}/>
-        </div>*/}
+        </div>}
 
       </div>
     );
