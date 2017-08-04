@@ -1,14 +1,31 @@
 import React from 'react';
 
 const Chemical = ({chemical}) => {
+  const properties = () => {
+    const propObj = {
+      "name": chemical.name,
+      "formula": chemical.formula,
+      "formula weight": chemical.fw,
+      "density": chemical.density,
+      "boiling point": chemical.bp,
+      "melting point": chemical.mp
+    };
+    return Object.keys(propObj).map(key => {
+      if (propObj[key] && propObj[key] !== " ") {
+        return (
+          <p key={key}> {key}: {propObj[key]} </p>
+        )
+      }
+    })
+  }
+
+  // console.log(chemical.name)
+  if (!chemical.name && chemical.name !== " ") {
+    return <p>Cannot find the chemical, please try again!</p>
+  }
   return (
     <div className="chemical">
-      <p>name: {chemical.name}</p>
-      <p>formula: {chemical.formula} </p>
-      <p>formula weight: {chemical.fw} </p>
-      <p>density: {chemical.density} </p>
-      <p>boiling point: {chemical.bp} </p>
-      <p>melting point: {chemical.mp} </p>
+      {properties()}
     </div>
   )
 }

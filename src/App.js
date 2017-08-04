@@ -9,7 +9,7 @@ class App extends Component {
     super()
 
     this.state = {
-      chemical: {}
+      chemical: {name: " "}
     }
   }
 
