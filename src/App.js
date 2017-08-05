@@ -25,7 +25,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-            <h1>Chemical Property Search App</h1>
+            <h2>Chemical Property Search App</h2>
         <br></br>
 
         <div className="searchbar">
