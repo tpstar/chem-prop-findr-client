@@ -24,9 +24,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-
-        <h1>Chemical Property Search App</h1>
+      <div className="App container">
+            <h1>Chemical Property Search App</h1>
+        <br></br>
 
         <div className="searchbar">
           <SearchChemical qChemical={this.searchChemical}/>

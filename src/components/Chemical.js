@@ -13,7 +13,10 @@ const Chemical = ({chemical}) => {
     return Object.keys(propObj).map(key => {
       if (propObj[key] && propObj[key] !== " ") {
         return (
-          <p key={key}> {key}: {propObj[key]} </p>
+          <div key={key}>
+            <span className="col-md-6 col-sm-6 col-xs-6"> {key}: </span>
+            <span className="col-md-6 col-sm-6 col-xs-6"> {propObj[key]} </span>
+          </div>
         )
       }
     })
@@ -25,7 +28,11 @@ const Chemical = ({chemical}) => {
   }
   return (
     <div className="chemical">
-      {properties()}
+      <div className="row">
+        <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-8 col-xs-8 offset-xs-8">
+          {properties()}
+        </div>
+      </div>
     </div>
   )
 }
