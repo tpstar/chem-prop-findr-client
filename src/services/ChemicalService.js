@@ -3,7 +3,6 @@ console.log(API_URL);
 
 const ChemicalService = {
   search: (chemical) => {
-    console.log("I am in Service " + chemical)
     return fetch(`${API_URL}/api/chemicals/search/${chemical}`)
             .then(response => response.json())
   }
