@@ -23,16 +23,18 @@ class SearchChemical extends Component {
     return (
 
       <div className="search-chemical">
-        <div className="row justify-content-center">
+        <div className="row">
           <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
-            <input
-              value={this.state.term}
-              type="text"
-              className="form-control"
-              placeholder="Enter the name of chemical"
-              onChange={this.handleOnChange}
-              onKeyPress={this.handleKeyPress}
-            />
+
+              <input
+                value={this.state.term}
+                type="text"
+                className="form-control"
+                placeholder="Enter the name of chemical"
+                onChange={this.handleOnChange}
+                onKeyPress={this.handleKeyPress}
+              />
+
           </div>
         </div>
         <br></br>

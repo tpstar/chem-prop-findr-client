@@ -24,7 +24,7 @@ const Chemical = ({chemical}) => {
 
   // console.log(chemical.name)
   if (!chemical.name && chemical.name !== " ") {
-    return <p>Cannot find the chemical, please try again!</p>
+    return <h4 className="wrong-name">Cannot find the chemical, please try again!</h4>
   }
   return (
     <div className="chemical">
