@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FormControl } from 'react-bootstrap'
 
 class SearchChemical extends Component {
   constructor(props) {
@@ -25,11 +26,12 @@ class SearchChemical extends Component {
         <div className="row">
           <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
 
-              <input
+              <FormControl
+                bsSize="lg"
                 value={this.state.term}
                 type="text"
                 className="form-control"
-                placeholder="Enter the name of chemical"
+                placeholder="Enter the name of a chemical"
                 onChange={this.handleOnChange}
                 onKeyPress={this.handleKeyPress}
               />
