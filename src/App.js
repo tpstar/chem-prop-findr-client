@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chemical from './components/Chemical'
 import SearchChemical from './components/SearchChemical';
+import Conversion from './components/Conversion'
 import ChemicalService from './services/ChemicalService';
 import './App.css';
 
@@ -25,16 +26,14 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
-            <h2>Chemical Property Search App</h2>
-        <br></br>
 
-        <div className="searchbar">
+          <h2>Chemical Property Search App</h2>
+
           <SearchChemical qChemical={this.searchChemical}/>
-        </div>
 
-        {<div className="chemical">
           <Chemical chemical={this.state.chemical}/>
-        </div>}
+
+          <Conversion chemical={this.state.chemical}/>
 
       </div>
     );

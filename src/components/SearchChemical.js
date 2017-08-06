@@ -21,7 +21,6 @@ class SearchChemical extends Component {
 
   render() {
     return (
-
       <div className="search-chemical">
         <div className="row">
           <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
@@ -34,12 +33,9 @@ class SearchChemical extends Component {
                 onChange={this.handleOnChange}
                 onKeyPress={this.handleKeyPress}
               />
-
           </div>
         </div>
-        <br></br>
       </div>
-
     )
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Chemical = ({chemical}) => {
+
   const properties = () => {
     const propObj = {
       "name": chemical.name,
@@ -10,15 +11,17 @@ const Chemical = ({chemical}) => {
       "boiling point": chemical.bp,
       "melting point": chemical.mp
     };
+
     return Object.keys(propObj).map(key => {
-      if (propObj[key] && propObj[key] !== " ") {
-        return (
-          <div key={key}>
-            <h4 className="col-md-5 col-sm-5 col-xs-5"> {key}: </h4>
-            <h4 className="col-md-7 col-sm-7 col-xs-7"> {propObj[key]} </h4>
-          </div>
-        )
+      if (!propObj[key] || propObj[key] === " ") {
+        return null //if no property to show, return nothing
       }
+      return (      
+        <div key={key}>
+          <h4 className="col-md-5 col-sm-5 col-xs-5"> {key}: </h4>
+          <h4 className="col-md-7 col-sm-7 col-xs-7"> {propObj[key]} </h4>
+        </div>
+      )
     })
   }
 
@@ -26,6 +29,7 @@ const Chemical = ({chemical}) => {
   if (!chemical.name && chemical.name !== " ") {
     return <h4 className="wrong-name">Cannot find the chemical, please try again!</h4>
   }
+
   return (
     <div className="chemical">
       <div className="row">
