@@ -7,13 +7,19 @@ class Conversion extends Component {
 
     this.state = {
       grams: 0,
-      inputUnit: "unit"
+      startUnit: "unit",
+      startValue: 0
     }
   }
 
-  handleOnClick = inputUnit => {
-    this.setState({inputUnit})
-    console.log(inputUnit);
+  handleOnClick = startUnit => {
+    this.setState({startUnit})
+    // console.log(startUnit);
+  }
+
+  handleOnChange = startValue => {
+    this.setState({startValue})
+    // console.log(startValue)
   }
 
   // onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
@@ -30,11 +36,14 @@ class Conversion extends Component {
         <div className="conversion col-md-8 offset-md-4 col-sm-8 offset-sm-4">
           <FormGroup>
             <InputGroup>
-              <FormControl type="text" />
+              <FormControl
+                type="text"
+                onChange={event => this.handleOnChange(event.target.value)}
+              />
               <DropdownButton
                 componentClass={InputGroup.Button}
                 id="input-dropdown-addon"
-                title={this.state.inputUnit}
+                title={this.state.startUnit}
               >
                 <MenuItem
                   onClick={() => this.handleOnClick("g")}
