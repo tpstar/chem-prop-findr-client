@@ -21,3 +21,11 @@ h3 {
 .wrong-name {
   color: maroon;
 }
+
+p.glyphicon-arrow-down {
+  color: CornFlowerBlue;
+}
+
+.panel {
+  border-color: palegreen;
+}

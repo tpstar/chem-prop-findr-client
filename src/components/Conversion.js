@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { DropdownButton, MenuItem, FormGroup, InputGroup, FormControl } from 'react-bootstrap'
+import { DropdownButton, MenuItem, FormGroup, InputGroup, FormControl, Panel } from 'react-bootstrap'
 
 class Conversion extends Component {
   constructor(props) {
@@ -7,22 +7,31 @@ class Conversion extends Component {
 
     this.state = {
       grams: 0,
-      startUnit: "unit",
-      startValue: 0
+      inputUnit: "unit",
+      outputUnit: "unit",
+      inputValue: 0,
+      outputValue: " ",
+      open: false
     }
   }
 
-  handleOnClick = startUnit => {
-    this.setState({startUnit})
-    // console.log(startUnit);
+  handleOnClickInput = inputUnit => {
+    this.setState({inputUnit})
+    // console.log(inputUnit);
   }
 
-  handleOnChange = startValue => {
-    this.setState({startValue})
-    // console.log(startValue)
+  handleOnChange = inputValue => {
+    this.setState({inputValue})
+    // console.log(inputValue)
   }
 
-  // onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+  handleOnClickOutput = outputUnit => {
+    this.setState({outputUnit,
+                   open: true  })
+    console.log(outputUnit);
+  }
+
+
 
   render() {
 
@@ -31,33 +40,56 @@ class Conversion extends Component {
     }
 
     return (
-      <div className="row">
-        <h3> Conversion </h3>
-        <div className="conversion col-md-8 offset-md-4 col-sm-8 offset-sm-4">
-          <FormGroup>
-            <InputGroup>
-              <FormControl
-                type="text"
-                onChange={event => this.handleOnChange(event.target.value)}
-              />
-              <DropdownButton
-                componentClass={InputGroup.Button}
-                id="input-dropdown-addon"
-                title={this.state.startUnit}
-              >
-                <MenuItem
-                  onClick={() => this.handleOnClick("g")}
-                  key="grams"
-                  >g
-                </MenuItem>
-                <MenuItem
-                  onClick={() => this.handleOnClick("mol")}
-                  key="mol"
-                  >mol
-                </MenuItem>
-              </DropdownButton>
-            </InputGroup>
-          </FormGroup>
+      <div className="conversion">
+        <div className="row">
+          <h3> Conversion </h3>
+          <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
+            <FormGroup>
+              <InputGroup>
+                <FormControl
+                  type="text"
+                  onChange={event => this.handleOnChange(event.target.value)}
+                />
+                <DropdownButton
+                  componentClass={InputGroup.Button}
+                  id="input-dropdown-addon"
+                  title={this.state.inputUnit}
+                >
+                  <MenuItem
+                    onClick={() => this.handleOnClickInput("g")}
+                    key="grams"
+                    >g
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => this.handleOnClickInput("mol")}
+                    key="mol"
+                    >mol
+                  </MenuItem>
+                </DropdownButton>
+              </InputGroup>
+            </FormGroup>
+
+            <DropdownButton
+              componentClass={InputGroup.Button}
+              id="input-dropdown-addon"
+              title={this.state.outputUnit}
+            >
+              <MenuItem
+                onClick={() => this.handleOnClickOutput("g")}
+                key="grams"
+                >g
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.handleOnClickOutput("mol")}
+                key="mol"
+                >mol
+              </MenuItem>
+            </DropdownButton>
+            <Panel collapsible expanded={this.state.open} className="panel">
+              {this.state.outputValue}
+            </Panel>
+
+          </div>
         </div>
       </div>
     )
