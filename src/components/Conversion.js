@@ -1,5 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { DropdownButton, MenuItem, FormGroup, InputGroup, FormControl, Panel } from 'react-bootstrap'
+import ChemicalService from '../services/ChemicalService';
 
 class Conversion extends Component {
   constructor(props) {
@@ -27,8 +28,13 @@ class Conversion extends Component {
 
   handleOnClickOutput = outputUnit => {
     this.setState({outputUnit,
-                   open: true  })
-    console.log(outputUnit);
+                   open: true })
+
+    const outputValue =
+      ChemicalService.convert(this.state.inputUnit, this.state.inputValue, outputUnit, this.props.chemical.fw)
+
+    this.setState({outputValue})
+
   }
 
 

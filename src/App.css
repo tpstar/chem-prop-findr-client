@@ -22,10 +22,8 @@ h3 {
   color: maroon;
 }
 
-p.glyphicon-arrow-down {
-  color: CornFlowerBlue;
-}
 
 .panel {
-  border-color: palegreen;
+  border-color: CornFlowerBlue;
+  font-size: 115%;
 }
