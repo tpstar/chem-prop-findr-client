@@ -8,17 +8,22 @@ class Conversion extends Component {
 
     this.state = {
       grams: 0,
-      inputUnit: "unit",
-      outputUnit: "unit",
+      inputUnits: ["g", "mol", "mL"],
+      selectedInputUnit: "unit",
+      outputUnits: [],
+      selectedOutputUnit: "unit",
       inputValue: 0,
       outputValue: " ",
       open: false
     }
   }
 
-  handleOnClickInput = inputUnit => {
-    this.setState({inputUnit})
-    // console.log(inputUnit);
+  handleOnClickInput = selectedInputUnit => {
+    const index = this.state.inputUnits.indexOf(selectedInputUnit);
+    // when input unit is selected that unit is removed from output unit
+    const outputUnits = this.state.inputUnits;
+    outputUnits.splice(index, 1);
+    this.setState({selectedInputUnit, outputUnits})
   }
 
   handleOnChange = inputValue => {
@@ -26,20 +31,38 @@ class Conversion extends Component {
     // console.log(inputValue)
   }
 
-  handleOnClickOutput = outputUnit => {
+  handleOnClickOutput = selectedOutputUnit => {
 
     const outputValue =
-      ChemicalService.convert(this.state.inputUnit, this.state.inputValue,
-                              outputUnit, this.props.chemical.fw, this.props.chemical.density)
+      ChemicalService.convert(this.state.selectedInputUnit, this.state.inputValue,
+                              selectedOutputUnit, this.props.chemical.fw, this.props.chemical.density)
 
-    this.setState({outputUnit,
+    this.setState({selectedOutputUnit,
                    outputValue,
                    open: true })
   }
 
-
-
   render() {
+
+    const inputDropdown = this.state.inputUnits.map(inputUnit => {
+      return (
+        <MenuItem
+          onClick={() => this.handleOnClickInput(inputUnit)}
+          key={inputUnit}
+          >{inputUnit}
+        </MenuItem>
+      )
+    })
+
+    const outputDropdown = this.state.outputUnits.map(outputUnit => {
+      return (
+        <MenuItem
+          onClick={() => this.handleOnClickOutput(outputUnit)}
+          key={outputUnit}
+          >{outputUnit}
+        </MenuItem>
+      )
+    })
 
     if (!this.props.chemical.fw) {
       return null //if formula weight not present, return nothing
@@ -59,23 +82,9 @@ class Conversion extends Component {
                 <DropdownButton
                   componentClass={InputGroup.Button}
                   id="input-dropdown-addon"
-                  title={this.state.inputUnit}
+                  title={this.state.selectedInputUnit}
                 >
-                  <MenuItem
-                    onClick={() => this.handleOnClickInput("g")}
-                    key="grams"
-                    >g
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => this.handleOnClickInput("mol")}
-                    key="mol"
-                    >mol
-                  </MenuItem>
-                  <MenuItem
-                    onClick={() => this.handleOnClickInput("mL")}
-                    key="mL"
-                    >mL
-                  </MenuItem>
+                  {inputDropdown}
                 </DropdownButton>
               </InputGroup>
             </FormGroup>
@@ -83,23 +92,9 @@ class Conversion extends Component {
             <DropdownButton
               componentClass={InputGroup.Button}
               id="input-dropdown-addon"
-              title={this.state.outputUnit}
+              title={this.state.selectedOutputUnit}
             >
-              <MenuItem
-                onClick={() => this.handleOnClickOutput("g")}
-                key="grams"
-                >g
-              </MenuItem>
-              <MenuItem
-                onClick={() => this.handleOnClickOutput("mol")}
-                key="mol"
-                >mol
-              </MenuItem>
-              <MenuItem
-                onClick={() => this.handleOnClickOutput("mL")}
-                key="mL"
-                >mL
-              </MenuItem>
+              {outputDropdown}
             </DropdownButton>
             <Panel collapsible expanded={this.state.open} className="panel">
               {this.state.outputValue}

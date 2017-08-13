@@ -16,7 +16,7 @@ class SearchChemical extends Component {
   handleKeyPress = event => {
     if (event.key === 'Enter') {
       this.props.qChemical(this.state.term)
-      console.log(this.state.term)
+      // console.log(this.state.term)
     }
   }
 
