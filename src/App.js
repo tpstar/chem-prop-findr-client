@@ -12,13 +12,16 @@ class App extends Component {
     this.state = {
       chemical: {name: " "}
     }
+
+    //this.searchChemical = this.searchChemical.bind(this)
   }
 
+  //searchChemical(chemical) {
   searchChemical = chemical => {
     ChemicalService.search(chemical)
       .then(chemical => {
         this.setState({chemical})
-        console.log(this.state.chemical)
+        //console.log(this)
       });
 
   }

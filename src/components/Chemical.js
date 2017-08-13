@@ -1,7 +1,8 @@
 import React from 'react';
 
 const Chemical = ({chemical}) => {
-
+  //const chemical = props.chemical;
+  //const {chemical} = prop;
   const properties = () => {
     const propObj = {
       "name": chemical.name,
@@ -16,7 +17,7 @@ const Chemical = ({chemical}) => {
       if (!propObj[key] || propObj[key] === " ") {
         return null //if no property to show, return nothing
       }
-      return (      
+      return (
         <div key={key}>
           <h4 className="col-md-5 col-sm-5 col-xs-5"> {key}: </h4>
           <h4 className="col-md-7 col-sm-7 col-xs-7"> {propObj[key]} </h4>

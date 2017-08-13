@@ -27,14 +27,14 @@ class Conversion extends Component {
   }
 
   handleOnClickOutput = outputUnit => {
-    this.setState({outputUnit,
-                   open: true })
 
     const outputValue =
-      ChemicalService.convert(this.state.inputUnit, this.state.inputValue, outputUnit, this.props.chemical.fw)
+      ChemicalService.convert(this.state.inputUnit, this.state.inputValue,
+                              outputUnit, this.props.chemical.fw, this.props.chemical.density)
 
-    this.setState({outputValue})
-
+    this.setState({outputUnit,
+                   outputValue,
+                   open: true })
   }
 
 
@@ -48,8 +48,8 @@ class Conversion extends Component {
     return (
       <div className="conversion">
         <div className="row">
-          <h3> Conversion </h3>
           <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
+            <h3> Conversion </h3>
             <FormGroup>
               <InputGroup>
                 <FormControl
@@ -71,6 +71,11 @@ class Conversion extends Component {
                     key="mol"
                     >mol
                   </MenuItem>
+                  <MenuItem
+                    onClick={() => this.handleOnClickInput("mL")}
+                    key="mL"
+                    >mL
+                  </MenuItem>
                 </DropdownButton>
               </InputGroup>
             </FormGroup>
@@ -89,6 +94,11 @@ class Conversion extends Component {
                 onClick={() => this.handleOnClickOutput("mol")}
                 key="mol"
                 >mol
+              </MenuItem>
+              <MenuItem
+                onClick={() => this.handleOnClickOutput("mL")}
+                key="mL"
+                >mL
               </MenuItem>
             </DropdownButton>
             <Panel collapsible expanded={this.state.open} className="panel">
