@@ -19,8 +19,8 @@ const Chemical = ({chemical}) => {
       }
       return (
         <div key={key}>
-          <h4 className="col-md-5 col-sm-5 col-xs-5"> {key}: </h4>
-          <h4 className="col-md-7 col-sm-7 col-xs-7"> {propObj[key]} </h4>
+          <h4 className="col-md-8 col-sm-8 col-xs-8"> {key}: </h4>
+          <h4 className="col-md-4 col-sm-4 col-xs-4"> {propObj[key]} </h4>
         </div>
       )
     })

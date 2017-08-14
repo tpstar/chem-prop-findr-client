@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className="App container">
 
-          <h2>Chemical Property Search App</h2>
+          <h3>Chemical Search App</h3>
 
           <SearchChemical qChemical={this.searchChemical}/>
 
