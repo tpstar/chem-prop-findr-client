@@ -12,7 +12,7 @@ class Conversion extends Component {
       selectedInputUnit: "unit",
       outputUnits: [],
       selectedOutputUnit: "unit",
-      inputValue: 0,
+      inputValue: "",
       outputValue: " ",
       open: false
     }
@@ -40,6 +40,19 @@ class Conversion extends Component {
     this.setState({selectedOutputUnit,
                    outputValue,
                    open: true })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isNew) {
+      this.setState({
+        selectedInputUnit: "unit",
+        outputUnits: [],
+        selectedOutputUnit: "unit",
+        inputValue: "",
+        outputValue: " ",
+        open: false
+      })
+    }
   }
 
   render() {
@@ -78,6 +91,7 @@ class Conversion extends Component {
                 <FormControl
                   type="text"
                   onChange={event => this.handleOnChange(event.target.value)}
+                  value={this.state.inputValue}
                 />
                 <DropdownButton
                   componentClass={InputGroup.Button}

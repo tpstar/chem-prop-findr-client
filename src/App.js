@@ -10,7 +10,8 @@ class App extends Component {
     super()
 
     this.state = {
-      chemical: {name: " "}
+      chemical: {name: " "},
+      isNew: true
     }
 
     //this.searchChemical = this.searchChemical.bind(this)
@@ -20,7 +21,8 @@ class App extends Component {
   searchChemical = chemical => {
     ChemicalService.search(chemical)
       .then(chemical => {
-        this.setState({chemical})
+        this.setState({chemical,
+                       isNew: true})
         //console.log(this)
       });
 
@@ -36,7 +38,7 @@ class App extends Component {
 
           <Chemical chemical={this.state.chemical}/>
 
-          <Conversion chemical={this.state.chemical}/>
+          <Conversion chemical={this.state.chemical} isNew={this.state.isNew}/>
 
       </div>
     );

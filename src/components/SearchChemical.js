@@ -13,11 +13,11 @@ class SearchChemical extends Component {
     this.setState({term: event.target.value})
   }
 
-  handleKeyPress = event => {
-    if (event.key === 'Enter') {
-      this.props.qChemical(this.state.term)
-      // console.log(this.state.term)
-    }
+  handleOnSubmit = event => {
+    event.preventDefault(); // prevent the page from refreshing
+    this.props.qChemical(this.state.term)
+    this.setState({term: ""}) 
+                  // initialize the search term
   }
 
   render() {
@@ -25,7 +25,7 @@ class SearchChemical extends Component {
       <div className="search-chemical">
         <div className="row">
           <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
-
+            <form onSubmit={this.handleOnSubmit}>
               <FormControl
                 bsSize="lg"
                 value={this.state.term}
@@ -33,8 +33,9 @@ class SearchChemical extends Component {
                 className="form-control"
                 placeholder="Enter the name of a chemical"
                 onChange={this.handleOnChange}
-                onKeyPress={this.handleKeyPress}
+                // onKeyPress={this.handleKeyPress}
               />
+            </form>
           </div>
         </div>
       </div>
