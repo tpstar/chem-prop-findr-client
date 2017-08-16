@@ -24,7 +24,6 @@ class Conversion extends Component {
     const outputUnits = ["g", "mol", "mL"];
     outputUnits.splice(index, 1);
     this.setState({selectedInputUnit, outputUnits})
-    console.log("input units:", this.state.inputUnits, "output units", this.state.outputUnits)
   }
 
   handleOnChange = inputValue => {
@@ -54,6 +53,10 @@ class Conversion extends Component {
         open: false
       })
     }
+    if (!nextProps.chemical.density) {
+      this.setState({inputUnits: ["g", "mol"]})
+      //if no density present, then remove mL from units
+    }
   }
 
   render() {
@@ -81,6 +84,8 @@ class Conversion extends Component {
     if (!this.props.chemical.fw) {
       return null //if formula weight not present, return nothing
     }
+
+
 
     return (
       <div className="conversion">

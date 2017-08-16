@@ -23,7 +23,7 @@ class App extends Component {
       .then(chemical => {
         this.setState({chemical,
                        isNew: true})
-        //console.log(this)
+        console.log(this)
       });
 
   }
