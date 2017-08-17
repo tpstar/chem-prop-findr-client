@@ -21,7 +21,7 @@ class Conversion extends Component {
   handleOnClickInput = selectedInputUnit => {
     const index = this.state.inputUnits.indexOf(selectedInputUnit);
     // when input unit is selected that unit is removed from output unit
-    const outputUnits = ["g", "mol", "mL"];
+    const outputUnits = JSON.parse(JSON.stringify(this.state.inputUnits));
     outputUnits.splice(index, 1);
     this.setState({selectedInputUnit, outputUnits})
   }

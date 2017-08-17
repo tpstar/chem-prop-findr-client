@@ -13,6 +13,10 @@ const Chemical = ({chemical}) => {
       "melting point": chemical.mp
     };
 
+    if (!chemical.name && chemical.name !== " ") {
+      return <h4 className="wrong-name">Cannot find the chemical, please try again!</h4>
+    }
+    
     return Object.keys(propObj).map(key => {
       if (!propObj[key] || propObj[key] === " ") {
         return null //if no property to show, return nothing
@@ -26,10 +30,7 @@ const Chemical = ({chemical}) => {
     })
   }
 
-  // console.log(chemical.name)
-  if (!chemical.name && chemical.name !== " ") {
-    return <h4 className="wrong-name">Cannot find the chemical, please try again!</h4>
-  }
+
 
   return (
     <div className="chemical">
