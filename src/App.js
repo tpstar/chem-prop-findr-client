@@ -30,15 +30,19 @@ class App extends Component {
   render() {
     return (
       <div className="App container">
+        <img src={require('./img/hanlee_logo.png')} alt="hanlee logo" className="logo"/>
+        <div className='row'>
+          <div className='col span-1-of-2'>
+            <h3>Chemical Search App</h3>
+          </div>
+          <div className='col span-1-of-2'>
+            <SearchChemical qChemical={this.searchChemical}/>
 
-          <h3>Chemical Search App</h3>
+            <Chemical chemical={this.state.chemical}/>
 
-          <SearchChemical qChemical={this.searchChemical}/>
-
-          <Chemical chemical={this.state.chemical}/>
-
-          <Conversion chemical={this.state.chemical} isNew={this.state.isNew}/>
-
+            <Conversion chemical={this.state.chemical} isNew={this.state.isNew}/>
+          </div>
+        </div>
       </div>
     );
   }

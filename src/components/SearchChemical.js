@@ -16,15 +16,14 @@ class SearchChemical extends Component {
   handleOnSubmit = event => {
     event.preventDefault(); // prevent the page from refreshing
     this.props.qChemical(this.state.term)
-    this.setState({term: ""}) 
+    this.setState({term: ""})
                   // initialize the search term
   }
 
   render() {
     return (
       <div className="search-chemical">
-        <div className="row">
-          <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
+
             <form onSubmit={this.handleOnSubmit}>
               <FormControl
                 bsSize="lg"
@@ -36,8 +35,8 @@ class SearchChemical extends Component {
                 // onKeyPress={this.handleKeyPress}
               />
             </form>
-          </div>
-        </div>
+
+
       </div>
     )
   }
