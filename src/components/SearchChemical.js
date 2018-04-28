@@ -23,20 +23,18 @@ class SearchChemical extends Component {
   render() {
     return (
       <div className="search-chemical">
-
-            <form onSubmit={this.handleOnSubmit}>
-              <FormControl
-                bsSize="lg"
-                value={this.state.term}
-                type="text"
-                className="form-control"
-                placeholder="Enter the name of a chemical"
-                onChange={this.handleOnChange}
-                // onKeyPress={this.handleKeyPress}
-              />
-            </form>
-
-
+        <h4>Search</h4>
+        <form onSubmit={this.handleOnSubmit}>
+          <FormControl
+            bsSize="lg"
+            value={this.state.term}
+            type="text"
+            className="form-control"
+            placeholder="Enter the name of a chemical"
+            onChange={this.handleOnChange}
+            // onKeyPress={this.handleKeyPress}
+          />
+        </form>
       </div>
     )
   }

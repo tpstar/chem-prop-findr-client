@@ -89,9 +89,8 @@ class Conversion extends Component {
 
     return (
       <div className="conversion">
-        <div className="row">
-          <div className="col-md-8 offset-md-4 col-sm-8 offset-sm-4">
-            <h3> Conversion </h3>
+
+            <h4> Conversion </h4>
             <FormGroup>
               <InputGroup>
                 <FormControl
@@ -120,8 +119,6 @@ class Conversion extends Component {
               {this.state.outputValue}
             </Panel>
 
-          </div>
-        </div>
       </div>
     )
   }

@@ -33,7 +33,9 @@ class App extends Component {
         <img src={require('./img/hanlee_logo.png')} alt="hanlee logo" className="logo"/>
         <div className='row'>
           <div className='col span-1-of-2'>
-            <h3>Chemical Search App</h3>
+            <div className='main-text'>
+              <h3>Find Chemical Properties of Chemicals</h3>
+            </div>
           </div>
           <div className='col span-1-of-2'>
             <SearchChemical qChemical={this.searchChemical}/>
