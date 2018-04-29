@@ -62,6 +62,7 @@ class Conversion extends Component {
   render() {
 
     const inputDropdown = this.state.inputUnits.map(inputUnit => {
+      console.log(inputUnit)
       return (
         <MenuItem
           onClick={() => this.handleOnClickInput(inputUnit)}
