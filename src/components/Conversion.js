@@ -86,12 +86,14 @@ class Conversion extends Component {
       return null //if formula weight not present, return nothing
     }
 
-
+    let title = 'Primary';
+    let i = 1;
 
     return (
       <div className="conversion">
 
-            <h4> Conversion </h4>
+            <h3> Conversion </h3>
+
             <FormGroup>
               <InputGroup>
                 <FormControl

@@ -1,10 +1,11 @@
-#root {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* make background hazy */
-                    url(img/tpstarzrbn3.png);
-  background-size: cover;
-  background-position: center;
-  height: 100vh; /* fill whole page with header */
-  background-attachment: fixed;
+
+/*  SECTIONS  ============================================================================= */
+
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+  font-size: 20px;
 }
 
 /*  GROUPING  ============================================================================= */
@@ -17,6 +18,9 @@
 .row:after {
     content:"";
     display:table;
+}
+
+.row:after {
     clear:both;
 }
 
@@ -95,6 +99,15 @@
 	}
 }
 
+#root {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), /* make background hazy */
+                    url(img/tpstarzrbn3.png);
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* fill whole page with header */
+  background-attachment: fixed;
+}
+
 .row {
   max-width: 1140px;
   margin: 0 auto;
@@ -130,22 +143,22 @@
     margin: 5px auto 20px;
 }
 
+h1,
 h3 {
   color: #9ea7d8;
 }
 
-h4 {
-  color: #9ea7d8;
+h3 {
   margin-bottom: 20px;
 }
 
 p {
   color: #D0D8ff;
-  font-size: 120%;
+  /* font-size: 120%; */
 }
 
 .main-text {
-  margin-top: 40%;
+  margin-top: 35%;
 }
 
 .wrong-name {

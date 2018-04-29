@@ -23,7 +23,7 @@ class SearchChemical extends Component {
   render() {
     return (
       <div className="search-chemical">
-        <h4>Search</h4>
+        <h3>Search</h3>
         <form onSubmit={this.handleOnSubmit}>
           <FormControl
             bsSize="lg"

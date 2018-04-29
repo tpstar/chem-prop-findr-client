@@ -45,8 +45,8 @@ const Chemical = ({chemical}) => {
 
       return (
         <div key={key} className="row">
-          <p className="span-1-of-3"> {key}: </p>
-          <p className="span-2-of-3">  {propObj[key]} </p>
+          <p className="col span-1-of-3"> {key}: </p>
+          <p className="col span-2-of-3">  {propObj[key]} </p>
 
         </div>
       )

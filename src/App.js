@@ -29,12 +29,15 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App container">
-        <img src={require('./img/hanlee_logo.png')} alt="hanlee logo" className="logo"/>
+      <div className="App section">
+        <div className='row'>
+          <img src={require('./img/hanlee_logo.png')} alt="hanlee logo" className="logo"/>
+        </div>
         <div className='row'>
           <div className='col span-1-of-2'>
             <div className='main-text'>
-              <h3>Find Chemical Properties of Chemicals</h3>
+              <h1>Find Chemical Properties of </h1>
+              <h1>Chemicals</h1>
             </div>
           </div>
           <div className='col span-1-of-2'>
