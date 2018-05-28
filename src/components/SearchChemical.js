@@ -6,14 +6,15 @@ class SearchChemical extends Component {
     super(props)
 
     this.state = { term: ""};
-
+    this.handleOnChange = this.handleOnChange.bind(this)
+    this.handleOnSubmit = this.handleOnSubmit.bind(this)
   }
 
-  handleOnChange = event => {
+  handleOnChange(event) {
     this.setState({term: event.target.value})
   }
 
-  handleOnSubmit = event => {
+  handleOnSubmit(event) {
     event.preventDefault(); // prevent the page from refreshing
     this.props.qChemical(this.state.term)
     this.setState({term: ""})

@@ -16,9 +16,12 @@ class Conversion extends Component {
       outputValue: " ",
       open: false
     }
+    this.handleOnClickInput = this.handleOnClickInput.bind(this)
+    this.handleOnChange = this.handleOnChange.bind(this)
+    this.handleOnClickOutput = this.handleOnClickOutput.bind(this)
   }
 
-  handleOnClickInput = selectedInputUnit => {
+  handleOnClickInput(selectedInputUnit) {
     const index = this.state.inputUnits.indexOf(selectedInputUnit);
     // when input unit is selected that unit is removed from output unit
     const outputUnits = JSON.parse(JSON.stringify(this.state.inputUnits));
@@ -26,12 +29,12 @@ class Conversion extends Component {
     this.setState({selectedInputUnit, outputUnits})
   }
 
-  handleOnChange = inputValue => {
+  handleOnChange(inputValue) {
     this.setState({inputValue})
     // console.log(inputValue)
   }
 
-  handleOnClickOutput = selectedOutputUnit => {
+  handleOnClickOutput(selectedOutputUnit) {
 
     const outputValue =
       ChemicalService.convert(this.state.selectedInputUnit, this.state.inputValue,

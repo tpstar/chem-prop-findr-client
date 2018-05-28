@@ -14,11 +14,11 @@ class App extends Component {
       isNew: true
     }
 
-    //this.searchChemical = this.searchChemical.bind(this)
+    this.searchChemical = this.searchChemical.bind(this)
   }
 
-  //searchChemical(chemical) {
-  searchChemical = chemical => {
+  searchChemical(chemical) {
+  // searchChemical = chemical => {
     ChemicalService.search(chemical)
       .then(chemical => {
         this.setState({chemical,
