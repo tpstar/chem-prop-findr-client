@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { FormControl } from 'react-bootstrap'
+import { connect } from "react-redux";
+import { fetchChemical } from "../actions/index";
+import { FormControl } from 'react-bootstrap';
 
 class SearchChemical extends Component {
   constructor(props) {
     super(props)
-
     this.state = { term: ""};
     this.handleOnChange = this.handleOnChange.bind(this)
     this.handleOnSubmit = this.handleOnSubmit.bind(this)
@@ -16,7 +17,7 @@ class SearchChemical extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault(); // prevent the page from refreshing
-    this.props.qChemical(this.state.term)
+    this.props.fetchChemical(this.state.term);
     this.setState({term: ""})
                   // initialize the search term
   }
@@ -41,4 +42,4 @@ class SearchChemical extends Component {
   }
 }
 
-export default SearchChemical;
+export default connect(null,{ fetchChemical })(SearchChemical);

@@ -65,7 +65,7 @@ class Conversion extends Component {
   render() {
 
     const inputDropdown = this.state.inputUnits.map(inputUnit => {
-      console.log(inputUnit)
+      // console.log(inputUnit)
       return (
         <MenuItem
           onClick={() => this.handleOnClickInput(inputUnit)}
@@ -88,10 +88,7 @@ class Conversion extends Component {
     if (!this.props.chemical.fw) {
       return null //if formula weight not present, return nothing
     }
-
-    let title = 'Primary';
-    let i = 1;
-
+    
     return (
       <div className="conversion">
 

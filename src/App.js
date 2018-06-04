@@ -1,31 +1,30 @@
 import React, { Component } from 'react';
-import Chemical from './components/Chemical'
+import Chemical from './components/Chemical';
 import SearchChemical from './components/SearchChemical';
-import Conversion from './components/Conversion'
-import ChemicalService from './services/ChemicalService';
+// import Conversion from './components/Conversion';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super()
+  // constructor() {
+  //   super()
+  //
+  //   this.state = {
+  //     chemical: {name: " "},
+  //     isNew: true
+  //   }
 
-    this.state = {
-      chemical: {name: " "},
-      isNew: true
-    }
+    // this.searchChemical = this.searchChemical.bind(this)
+  // }
 
-    this.searchChemical = this.searchChemical.bind(this)
-  }
-
-  searchChemical(chemical) {
-  // searchChemical = chemical => {
-    ChemicalService.search(chemical)
-      .then(chemical => {
-        this.setState({chemical,
-                       isNew: true})
-      });
-
-  }
+  // searchChemical(chemical) {
+  // // searchChemical = chemical => {
+  //   ChemicalService.search(chemical)
+  //     .then(chemical => {
+  //       this.setState({chemical,
+  //                      isNew: true})
+  //     });
+  //
+  // }
 
   render() {
     return (
@@ -41,11 +40,11 @@ class App extends Component {
             </div>
           </div>
           <div className='col span-1-of-2'>
-            <SearchChemical qChemical={this.searchChemical}/>
+            <SearchChemical/>
 
-            <Chemical chemical={this.state.chemical}/>
+            <Chemical/>
 
-            <Conversion chemical={this.state.chemical} isNew={this.state.isNew}/>
+            {/* <Conversion chemical={this.state.chemical} isNew={this.state.isNew}/> */}
           </div>
         </div>
       </div>
