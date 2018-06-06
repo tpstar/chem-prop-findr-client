@@ -3,7 +3,16 @@
 exports[`fetchChemical should handle FETCH_CHEMICAL_SUCCESS action 1`] = `
 Array [
   Object {
-    "type": "FETCH_CHEMICAL",
+    "type": "FETCH_CHEMICAL_REQUEST",
+  },
+  Object {
+    "payload": Object {
+      "formula": "C6H5CH3",
+      "fw": "92.14",
+      "id": 1,
+      "name": "Fake Toluene",
+    },
+    "type": "FETCH_CHEMICAL_SUCCESS",
   },
 ]
 `;
