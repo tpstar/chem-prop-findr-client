@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`fetchChemical should handle FETCH_CHEMICAL_SUCCESS action 1`] = `
+Array [
+  Object {
+    "type": "FETCH_CHEMICAL",
+  },
+]
+`;

@@ -37,27 +37,8 @@ exports[`App renders loading correctly 1`] = `
     <div
       className="col span-1-of-2"
     >
-      <div
-        className="search-chemical"
-      >
-        <h3>
-          Search
-        </h3>
-        <form
-          onSubmit={[Function]}
-        >
-          <input
-            className="form-control form-control input-lg"
-            onChange={[Function]}
-            placeholder="Enter the name of a chemical"
-            type="text"
-            value=""
-          />
-        </form>
-      </div>
-      <div
-        className="chemical"
-      />
+      <SearchChemical />
+      <Chemical />
     </div>
   </div>
 </div>

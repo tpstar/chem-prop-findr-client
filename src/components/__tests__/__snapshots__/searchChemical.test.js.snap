@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchChemical renders loading correctly 1`] = `
+<div
+  className="search-chemical"
+>
+  <h3>
+    Search
+  </h3>
+  <form
+    onSubmit={[Function]}
+  >
+    <input
+      className="form-control form-control input-lg"
+      onChange={[Function]}
+      placeholder="Enter the name of a chemical"
+      type="text"
+      value=""
+    />
+  </form>
+</div>
+`;

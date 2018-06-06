@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { fetchChemical } from "../actions/index";
 import { FormControl } from 'react-bootstrap';
 
-class SearchChemical extends Component {
+export class SearchChemical extends Component {
   constructor(props) {
     super(props)
     this.state = { term: ""};
@@ -16,6 +16,7 @@ class SearchChemical extends Component {
   }
 
   handleOnSubmit(event) {
+    console.log(this.state.term);
     event.preventDefault(); // prevent the page from refreshing
     this.props.fetchChemical(this.state.term);
     this.setState({term: ""})

@@ -21,10 +21,4 @@ export function fetchChemical(chemical) {
         dispatch(fetchChemicalSuccess(data))
       });
   }
-
-
-  // return {
-  //   type: FETCH_CHEMICAL,
-  //   payload: request
-  // }
 }
